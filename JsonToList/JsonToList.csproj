@@ -48,7 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\DTO\DTOdocTagVersions.cs" />
+    <Compile Include="Models\DTO\DTOexamples.cs" />
     <Compile Include="Models\See\DocTagsVersions.cs" />
+    <Compile Include="Models\See\Examples.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\IJsonToDatabase.cs" />
@@ -58,8 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Sources\doctags.json" />
     <None Include="Sources\doctagversions.json" />
+    <None Include="Sources\examples.json" />
     <None Include="Sources\slack.db" />
+    <None Include="Sources\topics.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sources\System.Data.SQLite.dll" />

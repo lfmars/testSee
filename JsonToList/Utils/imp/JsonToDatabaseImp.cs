@@ -41,10 +41,6 @@ namespace JsonToList.Utils.imp
                     cmd.Parameters.AddWithValue("@ledate", led);
                     cmd.ExecuteNonQuery();
 
-                    // SQLiteCommand cmd = new SQLiteCommand()
-                    // SQLiteCommand cmd = sqlite.CreateCommand();
-                    // cmd.CommandText = "INSERT INTO tablename (column1,creation_date) VALUES (?,?)";
-
                 }
                 catch(SQLiteException ex)
                 {
@@ -53,6 +49,37 @@ namespace JsonToList.Utils.imp
                 sqlite.Close();
             }
             
+        }
+
+        public void examples(List<DTOexamples> examples)
+        {
+            StringToDate sToDate = new StringToDateImp();
+            foreach (DTOexamples example in examples)
+            {
+                try
+                {
+                    Console.WriteLine("adding " + example.Id);
+                    DateTime cd = sToDate.GetDate(example.CreationDate);
+                    DateTime led = sToDate.GetDate(example.CreationDate);
+                    sqlite.Open();
+                    SQLiteCommand cmd = new SQLiteCommand(sqlite);
+                    cmd.CommandText = "INSERT INTO examples VALUES (@id, @topicId, @titl, @des, @cdate, @ledate)";
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@id", example.Id);
+                    cmd.Parameters.AddWithValue("@topicId", example.DocTopicId);
+                    cmd.Parameters.AddWithValue("@titl", example.Title);
+                    cmd.Parameters.AddWithValue("@des", example.BodyMarkdown);
+                    cmd.Parameters.AddWithValue("@cdate", cd);
+                    cmd.Parameters.AddWithValue("@ledate", led);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    Console.WriteLine("kajuk in examples: " + ex);
+                }
+                sqlite.Close();
+            }
+
         }
     }
 }

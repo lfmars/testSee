@@ -11,6 +11,7 @@ namespace JsonToList.Utils
     interface IJsonToDatabase
     {
         void docTagsVersions(List<DTOdocTagVersions> docTagsVersions);
+        void examples(List<DTOexamples> examples);
 
     }
 }

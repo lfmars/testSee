@@ -29,18 +29,18 @@ namespace JsonToList
       //FileInfo f = new FileInfo(fileName);
       //string fullname = f.FullName;
       //Console.WriteLine(fullname);
-      StreamReader reader = new StreamReader(@"C:\Users\Marius\source\DbAction\testSee\JsonToList\Sources\doctagversions.json");
+      StreamReader reader = new StreamReader(@"C:\Users\Marius\source\DbAction\testSee\JsonToList\Sources\examples.json");
       string json = reader.ReadToEnd();
 
-      List<DTOdocTagVersions> versions = JsonConvert.DeserializeObject<List<DTOdocTagVersions>>(json);
+      List<DTOexamples> exampls = JsonConvert.DeserializeObject<List<DTOexamples>>(json);
             IJsonToDatabase worker = new JsonToDatabaseImp();
             //done
-           // worker.docTagsVersions(versions);
+            worker.examples(exampls);
 
 
 
 
-      Console.WriteLine(versions.Count);
+      Console.WriteLine(exampls.Count);
 
 
       //StringToDate sToDate = new StringToDateImp();
