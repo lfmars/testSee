@@ -29,16 +29,25 @@ namespace JsonToList
       //FileInfo f = new FileInfo(fileName);
       //string fullname = f.FullName;
       //Console.WriteLine(fullname);
-      StreamReader reader = new StreamReader(@"C:\Users\marius\source\repos\JsonToList\JsonToList\Sources\doctagversions.json");
+      StreamReader reader = new StreamReader(@"C:\Users\Marius\source\DbAction\testSee\JsonToList\Sources\doctagversions.json");
       string json = reader.ReadToEnd();
 
       List<DTOdocTagVersions> versions = JsonConvert.DeserializeObject<List<DTOdocTagVersions>>(json);
+            IJsonToDatabase worker = new JsonToDatabaseImp();
+            //done
+           // worker.docTagsVersions(versions);
+
+
+
+
       Console.WriteLine(versions.Count);
-      StringToDate sToDate = new StringToDateImp();
+
+
+      //StringToDate sToDate = new StringToDateImp();
      
-     string dat = versions[0].CreationDate;
-     DateTime time  = sToDate.GetDate(dat);
-      Console.WriteLine(time);
+     //string dat = versions[0].CreationDate;
+     //DateTime time  = sToDate.GetDate(dat);
+      //Console.WriteLine(time);
       //for (int i = 0; i < 10; i++)
       //{
       //  Math.Max(3, 4);
